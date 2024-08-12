@@ -24,11 +24,11 @@ const MainSection = () => {
               sequence={[
                 "Rajasekhar",
                 1000,
-                "Web Developer",
+                "a Web Developer",
                 1000,
-                "DevOps Seeker",
+                "a DevOps Seeker",
                 1000,
-                "Programmer",
+                "a Programmer",
                 1000,
               ]}
               wrapper="span"
