@@ -49,7 +49,7 @@ const MainSection = () => {
               Hire Me
             </Link>
             <Link
-              href="https://drive.google.com/file/d/1C_lV3eSo81KKHSt63DADm2N8lDjXpzXp/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1Mh5D2jtOvbmt5ZrTaRfVebij7hFzT0Eq/view?usp=sharing"
               className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br no-underline from-[#ff9100] to-[#ff9100] hover:bg-slate-800 text-white mt-3"
             >
               <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2.5">
