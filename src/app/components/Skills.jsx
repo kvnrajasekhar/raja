@@ -1,23 +1,24 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'animate.css/animate.min.css'; // Keep this if you want to use some animate.css classes
+import 'animate.css/animate.min.css';
+
 
 const Skills = () => {
-    const [hovered, setHovered] = useState(null);
 
-    const handleMouseOver = (id) => {
-        setHovered(id);
+
+    const showHiddenCard = (id) => {
+        document.getElementById(`${id}-hidden-card`).style.display = 'block';
     };
 
-    const handleMouseOut = () => {
-        setHovered(null);
+    const hideHiddenCard = (id) => {
+        document.getElementById(`${id}-hidden-card`).style.display = 'none';
     };
 
     return (
         <div className="flex flex-wrap justify-between mx-8 lg:mx-16 text-white" id="skills">
-            <div className="w-full">
+            <div className="w-full wow fadeInUp" data-wow-delay="0.1s">
                 <h1 className="text-4xl font-bold mb-8">Skills</h1>
                 <div className="flex flex-wrap">
                     {/* Column 1 */}
@@ -34,11 +35,11 @@ const Skills = () => {
                                 aria-valuenow="90"
                                 aria-valuemin="0"
                                 aria-valuemax="100"
-                                onMouseOver={() => handleMouseOver('html')}
-                                onMouseOut={handleMouseOut}
+                                onMouseOver={() => showHiddenCard('html')}
+                                onMouseOut={() => hideHiddenCard('html')}
                             ></progress>
                             <div
-                                className={`absolute bg-[#ff9100] text-black p-2 w-full md:w-[400px] z-10 rounded-lg shadow-md transition-opacity duration-300 ease-in-out ${hovered === 'html' ? 'opacity-100' : 'opacity-0'}`}
+                                className="absolute bg-[#ff9100] text-black p-2 w-full md:w-[400px] z-10 rounded-lg shadow-md hidden "
                                 id="html-hidden-card"
                             >
                                 <h6 className="text-center">HTML</h6>
@@ -63,11 +64,11 @@ const Skills = () => {
                                 aria-valuenow="85"
                                 aria-valuemin="0"
                                 aria-valuemax="100"
-                                onMouseOver={() => handleMouseOver('css')}
-                                onMouseOut={handleMouseOut}
+                                onMouseOver={() => showHiddenCard('css')}
+                                onMouseOut={() => hideHiddenCard('css')}
                             ></progress>
                             <div
-                                className={`absolute bg-[#ff9100] text-black p-2 w-full md:w-[400px] z-10 rounded-lg shadow-md transition-opacity duration-300 ease-in-out ${hovered === 'css' ? 'opacity-100' : 'opacity-0'}`}
+                                className="absolute bg-[#ff9100] text-black p-2 w-full md:w-[400px] z-10 rounded-lg shadow-md hidden "
                                 id="css-hidden-card"
                             >
                                 <h6 className="text-center">CSS</h6>
@@ -92,11 +93,11 @@ const Skills = () => {
                                 aria-valuenow="80"
                                 aria-valuemin="0"
                                 aria-valuemax="100"
-                                onMouseOver={() => handleMouseOver('python')}
-                                onMouseOut={handleMouseOut}
+                                onMouseOver={() => showHiddenCard('python')}
+                                onMouseOut={() => hideHiddenCard('python')}
                             ></progress>
                             <div
-                                className={`absolute bg-[#ff9100] text-black p-2 w-full md:w-[400px] z-10 rounded-lg shadow-md transition-opacity duration-300 ease-in-out ${hovered === 'python' ? 'opacity-100' : 'opacity-0'}`}
+                                className="absolute bg-[#ff9100] text-black p-2 w-full md:w-[400px] z-10 rounded-lg shadow-md hidden"
                                 id="python-hidden-card"
                             >
                                 <h6 className="text-center">Python</h6>
@@ -122,11 +123,11 @@ const Skills = () => {
                                 aria-valuenow="75"
                                 aria-valuemin="0"
                                 aria-valuemax="100"
-                                onMouseOver={() => handleMouseOver('javascript')}
-                                onMouseOut={handleMouseOut}
+                                onMouseOver={() => showHiddenCard('javascript')}
+                                onMouseOut={() => hideHiddenCard('javascript')}
                             ></progress>
                             <div
-                                className={`absolute bg-[#ff9100] text-black p-2 w-full md:w-[400px] z-10 rounded-lg shadow-md transition-opacity duration-300 ease-in-out ${hovered === 'javascript' ? 'opacity-100' : 'opacity-0'}`}
+                                className="absolute bg-[#ff9100] text-black p-2 w-full md:w-[400px] z-10 rounded-lg shadow-md hidden "
                                 id="javascript-hidden-card"
                             >
                                 <h6 className="text-center">JavaScript</h6>
@@ -151,11 +152,11 @@ const Skills = () => {
                                 aria-valuenow="80"
                                 aria-valuemin="0"
                                 aria-valuemax="100"
-                                onMouseOver={() => handleMouseOver('reactjs')}
-                                onMouseOut={handleMouseOut}
+                                onMouseOver={() => showHiddenCard('reactjs')}
+                                onMouseOut={() => hideHiddenCard('reactjs')}
                             ></progress>
                             <div
-                                className={`absolute bg-[#ff9100] text-black p-2 w-full md:w-[400px] z-10 rounded-lg shadow-md transition-opacity duration-300 ease-in-out ${hovered === 'reactjs' ? 'opacity-100' : 'opacity-0'}`}
+                                className="absolute bg-[#ff9100] text-black p-2 w-full md:w-[400px] z-10 rounded-lg shadow-md hidden"
                                 id="reactjs-hidden-card"
                             >
                                 <h6 className="text-center">React JS</h6>
@@ -180,104 +181,108 @@ const Skills = () => {
                                 aria-valuenow="70"
                                 aria-valuemin="0"
                                 aria-valuemax="100"
-                                onMouseOver={() => handleMouseOver('expressjs')}
-                                onMouseOut={handleMouseOut}
+                                onMouseOver={() => showHiddenCard('expressjs')}
+                                onMouseOut={() => hideHiddenCard('expressjs')}
                             ></progress>
                             <div
-                                className={`absolute bg-[#ff9100] text-black p-2 w-full md:w-[400px] z-10 rounded-lg shadow-md transition-opacity duration-300 ease-in-out ${hovered === 'expressjs' ? 'opacity-100' : 'opacity-0'}`}
+                                className="absolute bg-[#ff9100] text-black p-2 w-full md:w-[400px] z-10 rounded-lg shadow-md hidden"
                                 id="expressjs-hidden-card"
                             >
                                 <h6 className="text-center">ExpressJS</h6>
                                 <ul className="list-disc pl-5">
                                     <li className="mb-1">Experience in building RESTful APIs using Express.js.</li>
-                                    <li className="mb-1">Proficient in middleware, routing, and error handling in Express.js applications.</li>
-                                    <li className="mb-1">Knowledge of integrating Express.js with databases and frontend technologies.</li>
+                                    <li className="mb-1">Proficient in middleware integration and route handling.</li>
+                                    <li className="mb-1">Knowledge of server-side rendering and API security practices.</li>
+                                    <li className="mb-1">Experience in integrating Express.js with various databases.</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+
                     {/* Column 3 */}
                     <div className="w-full md:w-1/3 p-4">
                         {/* Skill 7: NodeJS */}
                         <div className="relative mb-4">
                             <div className="flex justify-between">
                                 <h6 className="font-bold">NodeJS</h6>
-                                <h6 className="font-bold">85%</h6>
-                            </div>
-                            <progress
-                                className="bg-[#ff9100] rounded-md cursor-pointer transition-all duration-300 ease-in-out w-full"
-                                style={{ width: '85%' }}
-                                aria-valuenow="85"
-                                aria-valuemin="0"
-                                aria-valuemax="100"
-                                onMouseOver={() => handleMouseOver('nodejs')}
-                                onMouseOut={handleMouseOut}
-                            ></progress>
-                            <div
-                                className={`absolute bg-[#ff9100] text-black p-2 w-full md:w-[400px] z-10 rounded-lg shadow-md transition-opacity duration-300 ease-in-out ${hovered === 'nodejs' ? 'opacity-100' : 'opacity-0'}`}
-                                id="nodejs-hidden-card"
-                            >
-                                <h6 className="text-center">NodeJS</h6>
-                                <ul className="list-disc pl-5">
-                                    <li className="mb-1">Experience in server-side JavaScript using Node.js.</li>
-                                    <li className="mb-1">Proficient in building scalable network applications.</li>
-                                    <li className="mb-1">Knowledge of Node.js ecosystem, including npm and popular libraries.</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        {/* Skill 8: MySQL */}
-                        <div className="relative mb-4">
-                            <div className="flex justify-between">
-                                <h6 className="font-bold">MySQL</h6>
-                                <h6 className="font-bold">75%</h6>
-                            </div>
-                            <progress
-                                className="bg-[#ff9100] rounded-md cursor-pointer transition-all duration-300 ease-in-out w-full"
-                                style={{ width: '75%' }}
-                                aria-valuenow="75"
-                                aria-valuemin="0"
-                                aria-valuemax="100"
-                                onMouseOver={() => handleMouseOver('mysql')}
-                                onMouseOut={handleMouseOut}
-                            ></progress>
-                            <div
-                                className={`absolute bg-[#ff9100] text-black p-2 w-full md:w-[400px] z-10 rounded-lg shadow-md transition-opacity duration-300 ease-in-out ${hovered === 'mysql' ? 'opacity-100' : 'opacity-0'}`}
-                                id="mysql-hidden-card"
-                            >
-                                <h6 className="text-center">MySQL</h6>
-                                <ul className="list-disc pl-5">
-                                    <li className="mb-1">Experience in relational database management with MySQL.</li>
-                                    <li className="mb-1">Proficient in SQL queries, data modeling, and database design.</li>
-                                    <li className="mb-1">Knowledge of database optimization and indexing.</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        {/* Skill 9: MongoDB */}
-                        <div className="relative mb-4">
-                            <div className="flex justify-between">
-                                <h6 className="font-bold">MongoDB</h6>
                                 <h6 className="font-bold">70%</h6>
                             </div>
                             <progress
-                                className="bg-[#ff9100] rounded-md cursor-pointer transition-all duration-300 ease-in-out w-full"
+                                className="bg-[#ff9100]  rounded-md cursor-pointer transition-all duration-300 ease-in-out w-full"
                                 style={{ width: '70%' }}
                                 aria-valuenow="70"
                                 aria-valuemin="0"
                                 aria-valuemax="100"
-                                onMouseOver={() => handleMouseOver('mongodb')}
-                                onMouseOut={handleMouseOut}
+                                onMouseOver={() => showHiddenCard('nodejs')}
+                                onMouseOut={() => hideHiddenCard('nodejs')}
                             ></progress>
                             <div
-                                className={`absolute bg-[#ff9100] text-black p-2 w-full md:w-[400px] z-10 rounded-lg shadow-md transition-opacity duration-300 ease-in-out ${hovered === 'mongodb' ? 'opacity-100' : 'opacity-0'}`}
+                                className="absolute bg-[#ff9100] text-black p-2 w-full md:w-[400px] md:-translate-x-40 lg:translate-x-0 z-10 rounded-lg shadow-md hidden"
+                                id="nodejs-hidden-card"
+                            >
+                                <h6 className="text-center">NodeJS</h6>
+                                <ul className="list-disc pl-5">
+                                    <li className="mb-1">Experience in building server-side applications using Node.js.</li>
+                                    <li className="mb-1">Proficient in asynchronous programming and event-driven architecture.</li>
+                                    <li className="mb-1">Knowledge of Node.js ecosystem and package management with npm.</li>
+                                    <li className="mb-1">Experience in integrating Node.js with various databases and external APIs.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        {/* Skill 8: MongoDB */}
+                        <div className="relative mb-4">
+                            <div className="flex justify-between">
+                                <h6 className="font-bold">MongoDB</h6>
+                                <h6 className="font-bold">65%</h6>
+                            </div>
+                            <progress
+                                className="bg-[#ff9100] rounded-md cursor-pointer transition-all duration-300 ease-in-out w-full"
+                                style={{ width: '65%' }}
+                                aria-valuenow="65"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                onMouseOver={() => showHiddenCard('mongodb')}
+                                onMouseOut={() => hideHiddenCard('mongodb')}
+                            ></progress>
+                            <div
+                                className="absolute bg-[#ff9100] text-black p-2 w-full md:w-[400px] md:-translate-x-40 lg:translate-x-0 z-10 rounded-lg shadow-md hidden "
                                 id="mongodb-hidden-card"
                             >
                                 <h6 className="text-center">MongoDB</h6>
                                 <ul className="list-disc pl-5">
-                                    <li className="mb-1">Experience in NoSQL database management with MongoDB.</li>
-                                    <li className="mb-1">Proficient in data modeling and querying using MongoDB.</li>
-                                    <li className="mb-1">Knowledge of integrating MongoDB with Node.js applications.</li>
+                                    <li className="mb-1">Experience in using MongoDB for NoSQL database management.</li>
+                                    <li className="mb-1">Proficient in creating and managing collections and documents.</li>
+                                    <li className="mb-1">Knowledge of MongoDB aggregation framework and indexing strategies.</li>
+                                    <li className="mb-1">Experience in integrating MongoDB with Node.js applications.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="relative mb-4">
+                            <div className="flex justify-between">
+                                <h6 className="font-bold">REST API</h6>
+                                <h6 className="font-bold">60%</h6>
+                            </div>
+                            <progress
+                                className="bg-[#ff9100] rounded-md cursor-pointer transition-all duration-300 ease-in-out w-full"
+                                style={{ width: '60%' }}
+                                aria-valuenow="60"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                onMouseOver={() => showHiddenCard('restapi')}
+                                onMouseOut={() => hideHiddenCard('restapi')}
+                            ></progress>
+                            <div
+                                className="absolute bg-[#ff9100] text-black p-2 w-full  md:w-[400px]  md:-translate-x-40 lg:translate-x-0 z-10 rounded-lg shadow-md hidden "
+                                id="restapi-hidden-card"
+                            >
+                                <h6 className="text-center">REST API</h6>
+                                <ul className="list-disc pl-5">
+                                    <li className="mb-1">Experience in designing and implementing RESTful APIs.</li>
+                                    <li className="mb-1">Proficient in HTTP methods, status codes, and API authentication.</li>
+                                    <li className="mb-1">Knowledge of API documentation using tools like Postman.</li>
+                                    <li className="mb-1">Experience in consuming and testing RESTful APIs from frontend applications.</li>
                                 </ul>
                             </div>
                         </div>
