@@ -49,11 +49,11 @@ const MainSection = () => {
               Hire Me
             </Link>
             <Link
-              href="https://drive.google.com/file/d/1ncfPw5m-fUdtrZWqgltlRWC87hKkBSFA/view?usp=sharing"
+              href="https://drive.google.com/file/d/1jHflIZQYcTUqdNw71QyYLTg0wH0qkWKl/view?usp=sharing"
               className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br no-underline from-[#ff9100] to-[#ff9100] hover:bg-slate-800 text-white mt-3"
             >
               <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2.5">
-                Download CV
+                My Resume
               </span>
             </Link>
           </div>
