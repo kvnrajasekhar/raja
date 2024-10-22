@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer className="footer border-0 z-8 text-white font-bold">
         <div className="container p-6 pb-12 items-center flex justify-between">
-          <span className="text-white fo">Rajasekhar</span>
+          <span className="text-white pr-4">Rajasekhar</span>
           <div className="socials flex flex-row gap-4 items-center justify-center">
             <Link href="https://github.com/kvnrajasekhar/" className="hover-[#ff9500]">
               <Image src={GithubIcon} alt="Github Icon" />
@@ -30,7 +30,7 @@ const Footer = () => {
               <Image src={MailIcon} alt="Mail Icon" />
             </Link>
           </div>
-          <span className="text-white">All rights reserved.</span>
+          <span className="text-white pl-4">All rights reserved.</span>
         </div>
       </footer>
   );
