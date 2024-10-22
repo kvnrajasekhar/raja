@@ -84,7 +84,7 @@ const Skills = () => {
             id: 'mongodb',
             description: [
                 'Experience in NoSQL database management using MongoDB.',
-                'Proficient in CRUD operations and indexing in MongoDB.',
+                'Proficient in CRUD operations, and indexing in MongoDB.',
                 'Knowledge of Mongoose ORM for modeling and querying MongoDB data.',
                 'Experience in integrating MongoDB with Node.js applications.',
             ],
@@ -114,55 +114,60 @@ const Skills = () => {
     ];
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 relative w-90">
-            {skills.map((skill) => (
-                <div
-                    key={skill.id}
-                    className="relative mb-4 w-70 transition-transform duration-300 hover:scale-105"
-                    onMouseEnter={() => showHiddenCard(skill.id)}
-                    onMouseLeave={hideHiddenCard}
-                >
-                    <div className="flex justify-between mb-2 ">
-                        <h6 className="font-bold">{skill.name}</h6>
-                        <h6 className="font-bold">{skill.percentage}%</h6>
-                    </div>
+        <>
+            <div className=" justify-between  text-white" id="skills">
+                <h1 className="text-4xl flex justify-center  font-bold mb-8">Skills</h1>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 relative w-90">
 
-                    {/* Progress bar */}
-                    <div
-                        className="w-full bg-gray-200 rounded-full h-4 "
-                        style={{
-                            backgroundColor: '#343a40',
-                            height: '17px',
-                            cursor: 'pointer',
-                        }}
-                    >
+                    {skills.map((skill) => (
                         <div
-                            className="h-4 rounded-full bg-[#adb5db] transition-colors  hover:bg-[#ff9100]"
-                            style={{
-                                width: `${skill.percentage}%`,
-                                height: '17px',
-                            }}
-                        ></div>
-                    </div>
-
-                    {hoveredSkill === skill.id && (
-                        <div
-                            className="absolute top-0 left-0 w-full bg-gray-100 shadow-lg rounded-lg mt-2 p-4 z-10"
-                            style={{ transform: 'translateY(-100%)', backgroundColor: '#ff9100' }}
+                            key={skill.id}
+                            className="relative mb-4 w-70 transition-transform  hover:scale-105"
+                            onMouseEnter={() => showHiddenCard(skill.id)}
+                            onMouseLeave={hideHiddenCard}
                         >
-                            <h6 className="text-center font-bold text-black">{skill.name}</h6>
-                            <ul className="list-disc ml-4 text-black">
-                                {skill.description.map((desc, index) => (
-                                    <li key={index} className="text-sm">
-                                        {desc}
-                                    </li>
-                                ))}
-                            </ul>
+                            <div className="flex justify-between mb-2 ">
+                                <h6 className="font-bold">{skill.name}</h6>
+                                <h6 className="font-bold">{skill.percentage}%</h6>
+                            </div>
+
+                            {/* Progress bar */}
+                            <div
+                                className="w-full bg-gray-200 rounded-full h-4"
+                                style={{
+                                    backgroundColor: '#343a40',
+                                    height: '17px',
+                                    cursor: 'pointer',
+                                }}
+                            >
+                                <div
+                                    className=" h-4 rounded-full bg-[#adb5db] transition-colors duration-300 hover:bg-[#ff9100]"
+                                    style={{
+                                        width: `${skill.percentage}%`,
+                                        height: '17px',
+                                    }}
+                                ></div>
+                            </div>
+                            {hoveredSkill === skill.id && (
+                                <div
+                                    className="absolute top-0 left-0 w-full bg-gray-100 shadow-lg rounded-lg mt-2 p-4 z-10"
+                                    style={{ transform: 'translateY(-100%)', backgroundColor: '#ff9100' }}
+                                >
+                                    <h6 className="text-center font-bold text-black">{skill.name}</h6>
+                                    <ul className="list-disc ml-4 text-black">
+                                        {skill.description.map((desc, index) => (
+                                            <li key={index} className="text-sm">
+                                                {desc}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
                         </div>
-                    )}
+                    ))}
                 </div>
-            ))}
-        </div>
+            </div>
+        </>
     );
 };
 export default Skills;
