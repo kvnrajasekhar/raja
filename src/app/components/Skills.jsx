@@ -62,7 +62,7 @@ const Skills = () => {
             id: 'reactjs',
             description: [
                 'Experience in building user interfaces using React.js.',
-                'Proficient in state management with Redux and context API.',
+                'Proficient in state management with Redux.',
                 'Knowledge of React hooks, functional components, and class components.',
                 'Experience in integrating React with backend APIs to build full-stack applications.',
             ],
@@ -84,7 +84,7 @@ const Skills = () => {
             id: 'mongodb',
             description: [
                 'Experience in NoSQL database management using MongoDB.',
-                'Proficient in CRUD operations, indexing, and aggregation pipelines in MongoDB.',
+                'Proficient in CRUD operations and indexing in MongoDB.',
                 'Knowledge of Mongoose ORM for modeling and querying MongoDB data.',
                 'Experience in integrating MongoDB with Node.js applications.',
             ],
@@ -118,18 +118,18 @@ const Skills = () => {
             {skills.map((skill) => (
                 <div
                     key={skill.id}
-                    className="relative mb-4 w-70"
+                    className="relative mb-4 w-70 transition-transform duration-300 hover:scale-105"
                     onMouseEnter={() => showHiddenCard(skill.id)}
                     onMouseLeave={hideHiddenCard}
                 >
-                    <div className="flex justify-between mb-2 transition-transform duration-300 hover:scale-105">
+                    <div className="flex justify-between mb-2 ">
                         <h6 className="font-bold">{skill.name}</h6>
                         <h6 className="font-bold">{skill.percentage}%</h6>
                     </div>
 
                     {/* Progress bar */}
                     <div
-                        className="w-full bg-gray-200 rounded-full h-4 transition-transform duration-300 hover:scale-105"
+                        className="w-full bg-gray-200 rounded-full h-4 "
                         style={{
                             backgroundColor: '#343a40',
                             height: '17px',
@@ -137,10 +137,9 @@ const Skills = () => {
                         }}
                     >
                         <div
-                            className="h-4 rounded-full"
+                            className="h-4 rounded-full bg-[#adb5db] transition-colors  hover:bg-[#ff9100]"
                             style={{
                                 width: `${skill.percentage}%`,
-                                backgroundColor: '#adb5bd',
                                 height: '17px',
                             }}
                         ></div>
