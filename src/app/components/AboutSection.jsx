@@ -35,6 +35,8 @@ const TAB_DATA = [
         <li>The Complete Web Development Bootcamp 2024 - Udemy</li>
         <li>Introduction to DevOps - IBM</li>
         <li>Programming in java - NPTEL</li>
+        <li>Git for beginners - by KodeKloud</li>
+        <li>Microsoft Azure AI Fundamentals - Microsoft</li>
       </ul>
     ),
   },
