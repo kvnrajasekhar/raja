@@ -1,13 +1,15 @@
 "use client";
 import React from "react";
+import '../../app/globals.css';
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { BsChevronDown } from "react-icons/bs";
 
 const MainSection = () => {
   return (
-    <section className="lg:py-16 px-8 sm:px-16">
+    <section className="main-section lg:py-16 px-8 sm:px-16">
       <div className="grid grid-cols-1 sm:grid-cols-12 gap-8">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
@@ -16,11 +18,12 @@ const MainSection = () => {
           className="col-span-8 place-self-center text-center sm:text-left justify-self-start w-auto"
         >
           <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-7xl lg:leading-normal font-extrabold">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff9100] to-[#ffffff]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff9100] to-[#ff7800]">
               Hello, I&apos;m{" "}
             </span>
             <br />
             <TypeAnimation
+              className="neon-shadow"
               sequence={[
                 "Rajasekhar",
                 1000,
@@ -74,6 +77,21 @@ const MainSection = () => {
             />
           </div>
         </motion.div>
+      </div>
+      {/* Scroll Down Button */}
+      <div className="flex justify-center mt-8">
+        <motion.button
+          className="p-3 rounded-full text-[#ff9100] bg-transparent border-2 border-[#ff9100] flex items-center justify-center"
+          animate={{ y: [0, 10, 0] }}
+          transition={{
+            duration: 1,
+            repeat: Infinity,
+            repeatType: "loop",
+            ease: "easeInOut",
+          }}
+        >
+          <BsChevronDown size={24} />
+        </motion.button>
       </div>
     </section>
   );
