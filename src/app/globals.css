@@ -26,6 +26,10 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.main-section {
+  height: 90vh;
+}
+
 .neon-shadow {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
