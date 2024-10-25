@@ -29,7 +29,7 @@ const Navbar = () => {
 
   return (
     
-    <nav className="fixed mx-auto border-0 border-[#33353F] top-0 left-0 right-0 z-20  bg-[#121212] bg-opacity-100 py-0">
+    <nav className="fixed mx-auto border-0 border-[#33353F] top-0 left-0 right-0 z-20  bg-[#121212] bg-opacity-100 py-6">
       <div className="flex container flex-wrap items-center justify-between mx-auto px-4 py-0">
         <Link
           href={"/"}
