@@ -114,11 +114,11 @@ const MainSection = () => {
             transition={{ duration: 0.5 }}
             className="col-span-4 place-self-center mt-4 lg:mt-0"
           >
-            <div className=" w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative flex items-center justify-center  sm:min-h-0">
+            <div className=" w-[250px] h-[250px] lg:w-[370px] lg:h-[370px] relative flex items-center justify-center  sm:min-h-0">
               <Image
                 src="/images/main-b and w.png"
                 alt="hero image"
-                className="absolute transform -translate-x-1/2 sm: -translate-y-1/2  top-1/2 left-1/2 lg:h-[400px] lg:w-[400px] sm:w-[300px] sm:h-[300px]"
+                className="absolute transform -translate-x-1/2 sm: -translate-y-1/2  top-1/2 left-1/2 lg:h-[370px] lg:w-[370px] sm:w-[300px] sm:h-[300px]"
                 width={200}
                 height={200}
               />
