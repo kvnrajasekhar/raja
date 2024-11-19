@@ -1,5 +1,5 @@
 "use client";
-import React, { useTransition, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
 
@@ -44,27 +44,50 @@ const TAB_DATA = [
 
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
-  const [isPending, startTransition] = useTransition();
+  const [isInView, setIsInView] = useState(false);
 
   const handleTabChange = (id) => {
-    startTransition(() => {
-      setTab(id);
-    });
+    setTab(id);
   };
 
+  const handleScroll = () => {
+    const section = document.getElementById("about");
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+      setIsInView(true);
+    } else {
+      setIsInView(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // check the scroll position on mount
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <section className="text-white" id="about">
+    <section
+      className={`text-white transition-opacity duration-500 ${
+        isInView ? "opacity-100" : "opacity-0"
+      }`}
+      id="about"
+    >
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <Image src="/images/about-img.png" width={500} height={500} alt="About Image"/>
+        <Image src="/images/about-img.png" width={500} height={500} alt="About Image" />
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
-          I am a Full-Stack Web Developer and aspiring DevOps professional 
-          with a zeal for building interactive and responsive web applications. 
-          My background includes proficiency in JavaScript, React, Node.js, 
-          Express, HTML, CSS, PHP, and Git. I am an avid learner, continually seeking 
-          to broaden my expertise and capabilities. As a collaborative team member, 
-          I am enthusiastic about partnering with others to develop outstanding applications.
+            I am a Full-Stack Web Developer and aspiring DevOps professional
+            with a zeal for building interactive and responsive web applications.
+            My background includes proficiency in JavaScript, React, Node.js,
+            Express, HTML, CSS, PHP, and Git. I am an avid learner, continually
+            seeking to broaden my expertise and capabilities. As a collaborative
+            team member, I am enthusiastic about partnering with others to
+            develop outstanding applications.
           </p>
           <div className="flex flex-row justify-start mt-8">
             <TabButton
