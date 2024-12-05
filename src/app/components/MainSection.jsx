@@ -1,4 +1,4 @@
-"use client";
+ssatge "use client";
 import React, { useEffect, useState } from "react";
 import '../../app/globals.css';
 import Image from "next/image";
@@ -114,7 +114,7 @@ const MainSection = () => {
             transition={{ duration: 0.5 }}
             className="col-span-4 place-self-center mt-4 lg:mt-0"
           >
-            <div className=" w-[250px] h-[250px] lg:w-[370px] lg:h-[370px] relative flex items-center justify-center  sm:min-h-0">
+            <div className=" w-[250px] h-[250px] lg:w-[325px] lg:h-[340px] relative flex items-center justify-center  sm:min-h-0">
               <Image
                 src="/images/main-b and w.png"
                 alt="hero image"
