@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Link from "next/link";
@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const ContactSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
-  const [mailtoURL, setMailtoURL] = useState('');
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,8 +15,10 @@ const ContactSection = () => {
     const subject = e.target.subject.value;
     const message = e.target.message.value;
 
-    const newMailtoURL = `mailto:kanagalavnrajasekhar@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
-    setMailtoURL(newMailtoURL);
+    if (typeof window !== "undefined") {
+      const mailtoURL = `https://mail.google.com/mail/?view=cm&fs=1&to=kanagalavnrajasekhar@gmail.com&su=${subject}&body=${message}`;
+      window.open(mailtoURL, '_blank');
+    }
 
     setEmailSubmitted(true);
   };
@@ -24,42 +26,51 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative z-0"
+      className="grid grid-cols-1 md:grid-cols-2 my-8 md:my-12 py-12 md:py-24 gap-6 relative z-0 px-4"
     >
-      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#ff9500] to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
+      {/* Background Blur */}
+      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#ff9500] to-transparent rounded-full h-64 w-64 md:h-80 md:w-80 z-0 blur-lg absolute top-3/4 -left-8 transform -translate-x-1/2 -translate-y-1/2"></div>
+
+      {/* Contact Info */}
       <div className="z-10">
-        <h5 className="text-xl font-bold text-white my-2">
-          Let&apos;s Connect
-        </h5>
-        <p className="text-[#ADB7BE] mb-4 max-w-md">
+        <h5 className="text-xl font-bold text-white my-2">Let&apos;s Connect</h5>
+        <p className="text-[#ADB7BE] mb-6 max-w-full">
           I am always open to connecting with like-minded professionals, enthusiasts, and potential collaborators.
-          If you share an interest in web development, DevOps, or simply want to exchange ideas, feel free to reach out!.
+          If you share an interest in web development, DevOps, IoT, or simply want to exchange ideas, feel free to reach out!
         </p>
-        <div className="socials flex flex-row gap-2">
-          <Link href="https://github.com/kvnrajasekhar/">
-            <Image src={GithubIcon} alt="Github Icon" />
+
+        {/* <div className="socials flex items-center space-x-4">
+          <Link href="https://github.com/kvnrajasekhar/" target="_blank">
+            <Image src={GithubIcon} alt="Github Icon" width={40} height={40} />
           </Link>
-          <Link href="https://linkedin.com/in/kvnrs23">
-            <Image src={LinkedinIcon} alt="Linkedin Icon" />
+          <Link href="https://linkedin.com/in/kvnrs23" target="_blank">
+            <Image src={LinkedinIcon} alt="LinkedIn Icon" width={40} height={40} />
           </Link>
+        </div> */}
+
+        {/* LinkedIn Badge */}
+        <div className="mt-4">
+          <div
+            className="badge-base LI-profile-badge"
+            data-locale="en_US"
+            data-size="medium"
+            data-theme="dark"
+            data-type="VERTICAL"
+            data-vanity="kvnrs23"
+            data-version="v1"
+          >
+            <a className="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/kvnrs23"></a>
+          </div>
         </div>
       </div>
+
+      {/* Contact Form */}
       <div>
         {emailSubmitted ? (
-          <div>
-            <p className="text-green-500 text-sm mt-2">
-              Mail sent successfully&#x21;...
-            </p>
-            <a
-              href={mailtoURL}
-              className="hidden" // Hide the link, but it will still trigger the default mail client
-            >
-              Email
-            </a>
-          </div>
+          <p className="text-green-500 text-sm mt-2">Mail sent successfully!...</p>
         ) : (
-          <form className="flex flex-col" onSubmit={handleSubmit}>
-            <div className="mb-6">
+          <form className="flex flex-col space-y-6" onSubmit={handleSubmit}>
+            <div>
               <label
                 htmlFor="email"
                 className="text-white block mb-2 text-sm font-medium"
@@ -75,7 +86,7 @@ const ContactSection = () => {
                 placeholder="yourmail@domain.com"
               />
             </div>
-            <div className="mb-6">
+            <div>
               <label
                 htmlFor="subject"
                 className="text-white block text-sm mb-2 font-medium"
@@ -91,7 +102,7 @@ const ContactSection = () => {
                 placeholder="Greetings"
               />
             </div>
-            <div className="mb-6">
+            <div>
               <label
                 htmlFor="message"
                 className="text-white block text-sm mb-2 font-medium"
@@ -101,6 +112,7 @@ const ContactSection = () => {
               <textarea
                 name="message"
                 id="message"
+                rows="4"
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                 placeholder="Happy to connect with you..."
               />
@@ -114,6 +126,13 @@ const ContactSection = () => {
           </form>
         )}
       </div>
+
+      <script
+        src="https://platform.linkedin.com/badges/js/profile.js"
+        async
+        defer
+        type="text/javascript"
+      ></script>
     </section>
   );
 };
