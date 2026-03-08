@@ -3,18 +3,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { FaLinkedin, FaExclamationTriangle } from "react-icons/fa";
 
+const logs = [
+  "Initializing deployment...",
+  "Checking dependencies",
+  "Pulling latest commit from origin/main",
+  "Commit: feat(ui): improve terminal layout",
+  "Installing packages...",
+  "Optimizing assets",
+  "Bundling modules",
+  "Generating static pages",
+  "Running performance checks",
+];
 export const MobileUpdate = () => {
-  const logs = [
-    "Initializing deployment...",
-    "Checking dependencies",
-    "Pulling latest commit from origin/main",
-    "Commit: feat(ui): improve terminal layout",
-    "Installing packages...",
-    "Optimizing assets",
-    "Bundling modules",
-    "Generating static pages",
-    "Running performance checks",
-  ];
 
   const [visibleLogs, setVisibleLogs] = useState([]);
   const [progress, setProgress] = useState(0);

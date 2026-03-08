@@ -206,7 +206,7 @@ const WorkspaceScene = () => (
 
     {/* ── CODE CONTENT ── */}
     {/* Section label */}
-    <text x="150" y="160" fill="#3b4070" fontSize="12" fontFamily="JetBrains Mono, monospace">/* ── Portfolio V2 — Under Active Development ── */</text>
+    <text x="150" y="160" fill="#3b4070" fontSize="12" fontFamily="JetBrains Mono, monospace">/ ── Portfolio V2 — Under Active Development ── /</text>
 
     {/* Line 1 */}
     <text x="130" y="185" fill="#3a3f6a" fontSize="12" fontFamily="JetBrains Mono, monospace">1</text>
@@ -216,7 +216,7 @@ const WorkspaceScene = () => (
 
     {/* Line 2 */}
     <text x="130" y="208" fill="#3a3f6a" fontSize="12" fontFamily="JetBrains Mono, monospace">2</text>
-    <text x="158" y="208" fill="#44475a" fontSize="13" fontFamily="JetBrains Mono, monospace">// Initializing developer workspace...</text>
+    <text x="158" y="208" fill="#44475a" fontSize="13" fontFamily="JetBrains Mono, monospace">/ Initializing developer workspace...</text>
 
     {/* Line 3 — const dev */}
     <text x="130" y="231" fill="#3a3f6a" fontSize="12" fontFamily="JetBrains Mono, monospace">3</text>
@@ -232,8 +232,8 @@ const WorkspaceScene = () => (
     <text x="158" y="254" fill="#8be9fd" fontSize="13" fontFamily="JetBrains Mono, monospace">dev</text>
     <text x="182" y="254" fill="#f8f8f2" fontSize="13" fontFamily="JetBrains Mono, monospace">.</text>
     <text x="195" y="254" fill="#50fa7b" fontSize="13" fontFamily="JetBrains Mono, monospace">workOn</text>
-    <text x="245" y="254" fill="#f8f8f2" fontSize="13" fontFamily="JetBrains Mono, monospace">(</text>
-    <text x="255" y="254" fill="#f1fa8c" fontSize="13" fontFamily="JetBrains Mono, monospace">"portfolio-v2"</text>
+      <text x="245" y="254" fill="#f8f8f2" fontSize="13" fontFamily="JetBrains Mono, monospace">(</text>
+    <text x="255" y="254" fill="#f1fa8c" fontSize="13" fontFamily="JetBrains Mono, monospace">&quot;portfolio-v2&quot;</text>
     <text x="367" y="254" fill="#f8f8f2" fontSize="13" fontFamily="JetBrains Mono, monospace">);</text>
 
     {/* Line 5 — status update */}
@@ -242,7 +242,7 @@ const WorkspaceScene = () => (
     <text x="182" y="277" fill="#f8f8f2" fontSize="13" fontFamily="JetBrains Mono, monospace">.</text>
     <text x="195" y="277" fill="#50fa7b" fontSize="13" fontFamily="JetBrains Mono, monospace">setStatus</text>
     <text x="270" y="277" fill="#f8f8f2" fontSize="13" fontFamily="JetBrains Mono, monospace">(</text>
-    <text x="280" y="277" fill="#f1fa8c" fontSize="13" fontFamily="JetBrains Mono, monospace">"crafting every pixel..."</text>
+    <text x="280" y="277" fill="#f1fa8c" fontSize="13" fontFamily="JetBrains Mono, monospace">&quot;crafting every pixel...&quot;</text>
     <text x="480" y="277" fill="#f8f8f2" fontSize="13" fontFamily="JetBrains Mono, monospace">);</text>
 
     {/* Line 6 — blank */}
