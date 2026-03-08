@@ -1,23 +1,60 @@
-import MainSection from "./components/MainSection";
-import Navbar from "./components/Navbar";
-import AboutSection from "./components/AboutSection";
-import ProjectsSection from "./components/ProjectsSection";
-import EmailSection from "./components/ContactSection";
-import Footer from "./components/Footer";
-import Skills from "./components/Skills"
+"use client";
+
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+
+import { MobileUpdate } from "./components/MobileUpdate";
+import { TabletUpdate } from "./components/TabletUpdate";
+
+// Prevent SSR issues
+const UnderUpdate = dynamic(() => import("./components/UnderUpdate"), {
+  ssr: false,
+  loading: () => (
+    <div className="min-h-screen bg-[#121212] flex items-center justify-center text-white">
+      Loading...
+    </div>
+  ),
+});
 
 export default function Home() {
+  const [screen, setScreen] = useState(null);
+
+  useEffect(() => {
+    const detectScreen = () => {
+      const width = window.innerWidth;
+
+      if (width < 640) {
+        setScreen("mobile");
+      } else if (width < 1024) {
+        setScreen("tablet");
+      } else {
+        setScreen("desktop");
+      }
+    };
+
+    detectScreen();
+    window.addEventListener("resize", detectScreen);
+
+    return () => window.removeEventListener("resize", detectScreen);
+  }, []);
+
+  const renderView = () => {
+    if (screen === "mobile") return <MobileUpdate />;
+    if (screen === "tablet") return <TabletUpdate />;
+    return <UnderUpdate />;
+  };
+
   return (
-    <main className="flex min-h-screen flex-col bg-[#121212]">
-      <Navbar />
-      <div className="container  mx-auto px-12 py-4">
-        <MainSection />
-        <AboutSection />
-        <Skills />
-        <ProjectsSection />
-        <EmailSection />
-      </div>
-      <Footer />
+    <main
+      style={{
+        position: "relative",
+        width: "100vw",
+        height: "100vh",
+        overflow: "hidden",
+        background: "#06080f",
+      }}
+    >
+      {renderView()}
     </main>
   );
 }
